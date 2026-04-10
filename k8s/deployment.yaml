@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-cicd-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-cicd
+  template:
+    metadata:
+      labels:
+        app: ai-cicd
+    spec:
+      containers:
+      - name: ai-cicd-container
+        image: setu3011/ai-powered-cicd
+        ports:
+        - containerPort: 3000
